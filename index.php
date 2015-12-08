@@ -4,8 +4,8 @@
  * By Tronsoftware tron@3tech.com.ar.
  */
   $hostname = 'localhost';
-  $username = 'locator';
-  $password = 'nexus1024';
+  $username = 'gts_user';
+  $password = 'gts_pass';
   $dbname = 'gts';
 
   try {
