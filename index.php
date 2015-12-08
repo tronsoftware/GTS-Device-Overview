@@ -50,20 +50,22 @@
 				<!-- Nombres de Columna -->
                 <thead>
               <tr>
-				<th>Last Conect </th>
-				<th>accountID</th>
-				<th>groupID</th>
+              	<th>Last Conect </th>
+		<th>accountID</th>
+		<th>groupID</th>
                 <th>deviceID</th>
-				<th>displayName</th>
-                <th>uniqueID</th>				
+		<th>displayName</th>
+                <th>uniqueID</th>
+                <!-- aqui mas columnas si es necesario -->
               </tr>
               </thead>
       <?php while($row = $sql->fetch()) { ?>
       <tr class="<?php 
-		$date1 = time();
-		$date2 = $row['lastEventTimestamp'];
-		$t = ($date1 - $date2) / 60;
-		//echo $t;
+      		// menos de 1 minuto=>active
+      		// menos de 10 minutos=>success
+      		// menos de 100 minutos=>warning
+      		// mas de 100 minutos=>danger
+		$t = (time(); - $row['lastEventTimestamp']) / 60;
 		if ($t<1){echo "active";}
 		elseif ($t<10){echo "success";}
 		elseif ($t<100){echo "warning";}
@@ -75,7 +77,7 @@
         <td><?php echo $row['deviceID']; ?></td>
 		<td><?php echo $row['displayName']; ?></td>
         <td><?php echo $row['uniqueID']; ?></td>
-		<!-- mas columnas si es necesario -->
+		<!-- aqui mas columnas si es necesario -->
        </tr>
       <?php } ?>
     </table>
