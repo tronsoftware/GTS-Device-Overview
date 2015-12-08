@@ -88,7 +88,7 @@
 <script>
  function autoRefresh_div()
  {
-      $("#tabla").load(location.href + " #tabla");
+      $("#tabla").load(location.href + " #tabla").fadeIn('fast');
   }
  
   setInterval('autoRefresh_div()', 5000); // refresh div after 5 secs
