@@ -45,27 +45,26 @@
     <p>Devices registrados en la plataforma
 	</p>
 	  <!-- Table -->
-<div class="table-responsive">
+<div id="tabla"class="table-responsive">
   <table class="table table-hover table-striped table-bordered">
 				<!-- Nombres de Columna -->
-                <thead>
+             <thead>
               <tr>
-              	<th>Last Conect </th>
-		<th>accountID</th>
-		<th>groupID</th>
+				<th>Last Conect </th>
+				<th>accountID</th>
+				<th>groupID</th>
                 <th>deviceID</th>
-		<th>displayName</th>
-                <th>uniqueID</th>
-                <!-- aqui mas columnas si es necesario -->
+				<th>displayName</th>
+                <th>uniqueID</th>	
+				<!-- mas columnas si es necesario -->				
               </tr>
-              </thead>
+             </thead>
       <?php while($row = $sql->fetch()) { ?>
       <tr class="<?php 
-      		// menos de 1 minuto=>active
-      		// menos de 10 minutos=>success
-      		// menos de 100 minutos=>warning
-      		// mas de 100 minutos=>danger
-		$t = (time(); - $row['lastEventTimestamp']) / 60;
+		$date1 = time();
+		$date2 = $row['lastEventTimestamp'];
+		$t = ($date1 - $date2) / 60;
+		//echo $t;
 		if ($t<1){echo "active";}
 		elseif ($t<10){echo "success";}
 		elseif ($t<100){echo "warning";}
@@ -77,7 +76,7 @@
         <td><?php echo $row['deviceID']; ?></td>
 		<td><?php echo $row['displayName']; ?></td>
         <td><?php echo $row['uniqueID']; ?></td>
-		<!-- aqui mas columnas si es necesario -->
+		<!-- mas columnas si es necesario -->
        </tr>
       <?php } ?>
     </table>
