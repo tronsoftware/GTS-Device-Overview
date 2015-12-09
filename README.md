@@ -12,4 +12,4 @@ En index.php cambiar los valores de :</p>
 <pre>$hostname = 'localhost';
 $username = 'gts_user';
 $password = 'gts_pass';
-  </pre>
+</pre>
