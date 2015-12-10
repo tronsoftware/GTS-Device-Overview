@@ -8,8 +8,8 @@ Mapa y auto-refresh jQuery.
 </p>
 <h4>---Instalacion---</h4>
 <p>Copiar el contenido a el web server.</br>
-En index.php cambiar los valores de :</p>
+En db.php cambiar los valores de :</p>
 <pre>$hostname = 'localhost';
-$username = 'gts_user';
-$password = 'gts_pass';
+$username = 'user';
+$password = 'pass';
 </pre>
